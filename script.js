@@ -35,50 +35,7 @@ document.getElementById("searchForm").addEventListener("submit", function (e) {
     }
 });
 
-// On Load Popup
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("entryForm");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          alert("Thank you for joining! We will contact you soon.");
-          form.reset();
-          closePopup(); // Close modal properly
-        } else {
-          alert("There was an issue with your submission. Please try again.");
-        }
-      })
-      .catch(() => {
-        alert("Submission failed. Please check your internet connection.");
-      });
-  });
-
-  // Show popup on load
-  window.addEventListener("load", () => {
-    document.getElementById("overlay").style.display = "block";
-    document.getElementById("formPopup").style.display = "block";
-    document.body.classList.add("popup-open");
-  });
-});
-
-// Close popup and restore scroll
-function closePopup() {
-  document.getElementById("overlay").style.display = "none";
-  document.getElementById("formPopup").style.display = "none";
-  document.body.classList.remove("popup-open");
-}
 
 
      // Updated Store data for dropdowns
@@ -227,3 +184,6 @@ function closePopup() {
         resultsDiv.textContent = 'Geolocation is not supported by this browser.';
       }
     });
+
+
+

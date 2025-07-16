@@ -1,15 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
 /* ========== BASE STYLES ========== */
 @import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
 
@@ -620,8 +610,87 @@ body.popup-open {
   }
 }
 
-  
 
 
-  
 
+
+/* ======= Popup Inner Content Responsiveness ======= */
+
+/* Mobile: Up to 480px */
+@media screen and (max-width: 480px) {
+  .form-popup-content img {
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .form-popup-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .form-popup-content input,
+  .form-popup-content button {
+    font-size: 0.85rem;
+    padding: 8px;
+    margin-top: 8px;
+  }
+
+  .form-popup-content button {
+    border-radius: 4px;
+  }
+}
+
+/* Tablet: 481px to 767px */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .form-popup-content img {
+    height: 120px;
+    margin-bottom: 12px;
+  }
+
+  .form-popup-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .form-popup-content input,
+  .form-popup-content button {
+    font-size: 0.95rem;
+    padding: 9px;
+  }
+}
+
+/* Small Desktop: 768px to 991px */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .form-popup-content img {
+    height: 140px;
+  }
+
+  .form-popup-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .form-popup-content input,
+  .form-popup-content button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+/* Desktop: 992px and up */
+@media screen and (min-width: 992px) {
+  .form-popup-content img {
+    height: 160px;
+  }
+
+  .form-popup-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .form-popup-content input,
+  .form-popup-content button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}

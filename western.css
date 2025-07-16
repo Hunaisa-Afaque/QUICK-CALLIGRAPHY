@@ -628,5 +628,108 @@ footer p{
       margin-top: 10px;
     }
   }
+
+
+
+
+  /* ========== MORE RESPONSIVE FIXES ========== */
+
+/* For small to medium screens (tablets and below) */
+@media (max-width: 991px) {
+  .background-container {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .about-calli, .images, .main-text2 {
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+    width: 95%;
+  }
+
+  .about-calli p, .main-text2 p {
+    font-size: 1rem;
+    text-align: justify;
+  }
+
+  .images img {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .card {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .timeline-text {
+    width: 90%;
+  }
+
+  .timeline::after {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 10px;
+    margin-bottom: 30px;
+  }
+
+  .timeline-item.left, .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item::before {
+    left: 0;
+    right: auto;
+  }
+
+  .timeline-item.left .timeline-content,
+  .timeline-item.right .timeline-content {
+    border-left: 4px solid #9f4f4f;
+    border-right: none;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 1.5rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  .timeline-content {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .card h2 {
+    font-size: 1.3rem;
+  }
+
+  .newsletter input {
+    width: 100%;
+  }
+
+  .newsletter button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
   
 

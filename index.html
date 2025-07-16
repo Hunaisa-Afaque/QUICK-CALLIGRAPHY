@@ -242,6 +242,126 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+
+  <script>
+    // On Load Popup
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("entryForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Thank you for joining! We will contact you soon.");
+          form.reset();
+          closePopup(); // Close modal properly
+        } else {
+          alert("There was an issue with your submission. Please try again.");
+        }
+      })
+      .catch(() => {
+        alert("Submission failed. Please check your internet connection.");
+      });
+  });
+
+      // Show popup on load
+  window.addEventListener("load", () => {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("formPopup").style.display = "block";
+    document.body.classList.add("popup-open");
+  });
+});
+
+// Close popup and restore scroll
+function closePopup() {
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("formPopup").style.display = "none";
+  document.body.classList.remove("popup-open");
+}
+
+
+  // Show popup on load
+  window.addEventListener("load", () => {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("formPopup").style.display = "block";
+    document.body.classList.add("popup-open");
+  });
+
+  // Close popup function
+  function closePopup() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("formPopup").style.display = "none";
+    document.body.classList.remove("popup-open");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("entryForm");
+    const inputs = form.querySelectorAll("input");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = inputs[0].value.trim();
+      const email = inputs[1].value.trim();
+      const contact = inputs[2].value.trim();
+
+      const nameRegex = /^[A-Za-z\s]+$/;
+      const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      const contactRegex = /^\d{11}$/;
+
+      // Name validation
+      if (!nameRegex.test(name)) {
+        alert("Please enter a valid full name (letters and spaces only).");
+        return;
+      }
+
+      // Email validation
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // Contact number validation
+      if (!contactRegex.test(contact)) {
+        alert("Please enter a valid 11-digit contact number.");
+        return;
+      }
+
+      // All valid – submit via fetch
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      })
+        .then((response) => {
+          if (response.ok) {
+            alert("Thank you! We will contact you soon.");
+            form.reset();
+            closePopup();
+          } else {
+            alert("There was an issue. Please try again.");
+          }
+        })
+        .catch(() => {
+          alert("Submission failed. Please check your internet connection.");
+        });
+    });
+  });
+
+
+
+  </script>
 </body>
 
 </html>
